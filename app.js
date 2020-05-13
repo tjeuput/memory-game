@@ -86,12 +86,13 @@ cardArray.sort()
 const grid = document.querySelector('.grid')
 const gpic = document.querySelector('.picture')
 const resultDisplay = document.querySelector('#result')
+const alertDisplay = document.querySelector('#alert')
 var cardsChosen = []
 var cardsChosenId = []
 var cardsWon = []
 
 //create board
-//whats the different between let, char, var
+
 function createBoard(){
 	for(let i = 0; i < cardArray.length; i++){
 		var card = document.createElement('img')
@@ -104,17 +105,18 @@ function createBoard(){
 
 createBoard()
 
-//showing all picture
-function allPicture(){
+//showing all pictures
+function allPictures(){
 	for(let i = 0; i < cardArray.length; i++){
 		var card = document.createElement('img')
 		card.src = cardArray[i].img
-		gpic.appendChild(card)	
+		gpic.appendChild(card)
+		cardArray.sort()	
 		
 	} 
 }
 
-allPicture()
+// allPictures()
 
 //check for match
 function checkForMatch(){
@@ -122,20 +124,23 @@ function checkForMatch(){
 	const optionOneId = cardsChosenId[0]
 	const optionTwoId = cardsChosenId[1]
 	if(cardsChosen[0] === cardsChosen[1]){
-		alert('You found a match')
-		cards[optionOneId].setAttribute('src', 'images/white.png')
-		cards[optionTwoId].setAttribute('src', 'images/white.png')
+		alertDisplay.textContent = "You found a match"
+		
+		cards[optionOneId].style.pointerEvents = "none";
+		cards[optionTwoId].style.pointerEvents = "none";
 		cardsWon.push(cardsChosen)
 	} else {
 		cards[optionOneId].setAttribute('src', 'images/end of.jpg')
 		cards[optionTwoId].setAttribute('src', 'images/end of.jpg')
-		alert('Sorry, try again')
+		alertDisplay.textContent = "Uh uh try again"
 	}
 	cardsChosen = []
 	cardsChosenId = []
 	resultDisplay.textContent = cardsWon.length
 	if(cardsWon.length === cardArray.length/2){
-		resultDisplay.textContent = "Congratulation"
+		resultDisplay.textContent = "Congratulation!"
+		alertDisplay.textContent = ""
+		allPictures()
 	}
 
 }

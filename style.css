@@ -1,8 +1,55 @@
+body {
+	background-color: #ffff;
+	margin: 0;
+	font-family:"Avenir", "Monserrat";
+}
+
+img {
+	border-radius: 5%;
+
+}
+
+#container {
+	
+  	padding: 10px;
+	max-width: 600px;
+	margin: auto;
+}
+
+#alert {
+	display: inline-block;
+	width: 20%;
+}
+
+h3 {
+	color:white;
+	text-align: center;
+	background: steelblue;
+	margin: 0;
+	font-weight:normal;
+	text-transform: uppercase;
+	line-height:1.1;
+	padding: 20px 0;
+
+}
+
+h6 {
+	color:black;
+	text-align: center;
+	
+	margin: 20px ;
+	
+	padding: 20px 0;
+
+}
+
+
 .grid {
 	display: flex;
 	flex-wrap: wrap;
 	height: 300px;
 	width: 400px;
+	margin: auto;
 }
 
 .picture {
